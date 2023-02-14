@@ -3,8 +3,7 @@ Dockerize and deploy a Machine Learning model and serve as a REST API using Flas
 
 # About Docker
 (Skip -- if you already know)
-      Docker is a containerization tool that helps applications to run in an isolated environment. To deploy a model/application in a host system or multiple systems, we need to install the required packages and dependencies in every system. To avoid this installation process, we define all dependecies in one DockerFile and execute it to create a Docker Image. This image can be used in any system to run the docker container, which automatically launches the application. 
-Also, a container doesn't have its own OS, but shares host's kernel. That's why it can load in seconds, boots faster and needs less resources compared to VM.
+      Docker is a containerization tool that helps applications to run in an isolated environment. To deploy a model/application in a host system or multiple systems, we need to install the required packages and dependencies in every system. To avoid this installation process, we define all dependecies in one DockerFile and execute it to create a Docker Image. This image can be used in any system to automatically launch the application. Also, a container doesn't have its own OS, but shares host's kernel. That's why it can load in seconds, boots faster and needs less resources compared to VM.
 
 # Project Overview
 This project starts by training different machine learning models on our [dataset](). Then MLflow chooses the best model out of these and saves it. This best model is then wrapped in a user interactive Flask web application. Then a docker image is created containing everything needed to run the application: the application code, libraries, tools, dependencies and other files. This image will be used to run the application in container.
