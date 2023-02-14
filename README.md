@@ -32,7 +32,7 @@ This project starts by training different machine learning models on our [datase
       
       docker run -it --name ml_proj_test -p 8888:8080 ml_proj:latest
         
-  6.As the container starts running, it launches the Flask API on the port 8080 of the docker       engine. In the application code, this port is bound to 8888 of hosts's local machine. To           view the application, go to URL:
+  6.As the container starts running, it launches the Flask API on the port 8080 of the docker       engine. This port is bound to 8888 of hosts's local machine. To view the application, go to URL:
       
        http://127.0.0.1:8888
         
