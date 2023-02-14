@@ -14,27 +14,50 @@ This project starts by training different machine learning models on our [datase
  - [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) 
  
  ## Steps to build the project
- To build the project, you can either use the DockerFile or .tar file.
+ To build the project, you can either use the DockerFile or the .tar file.
  
- ### Using DockerFile:
- 1.Copy Dockerfile and Stress_Detection folder in your working directory.
+ ### Using the DockerFile:
+ 1. Copy Dockerfile and Stress_Detection folder in your working directory.
  
- 2.Open command prompt in the working directory.
+ 2. Open command prompt in the working directory.
  
- 3.Build docker image using the command:
+ 3. Build docker image using the command:
         
       docker build -t ml_proj .
        
-  4.To see the image, use command:
+  4. To see the image, use command:
       
       docker images
       
-  5.Run the container using:
+  5. Run the container using:
       
       docker run -it --name ml_proj_test -p 8888:8080 ml_proj:latest
         
-  6.As the container starts running, it launches the Flask API on the port 8080 of the docker       engine. This port is bound to 8888 of hosts's local machine. To view the application, go to URL:
+  6. As the container starts running, it launches the Flask API on the port 8080 of the docker       engine. This port is bound to 8888 of hosts's local machine. To view the application, go to URL:
       
        http://127.0.0.1:8888
+        
+        
+  ### Using the .tar file:
+  
+  1. Download the .tar file only. This contains executable form of the image.
+  
+  2. Open CMD in the directory containing the .tar file.
+  
+  3. Use the following command to load the docker image contained in the .tar file:
+        
+        docker load < ml_project.tar
+        
+  4. See the image using,
+
+        docker images
+        
+  5. Run the container using:
+     
+        docker run -d -p 8888:8080 --name ml_proj_test ml_project:latest
+        
+  6. As the container starts running, it launches the Flask API on the port 8080 of the docker       engine. This port is bound to 8888 of hosts's local machine. To view the application, go to URL:
+      
+        http://127.0.0.1:8888
         
       
