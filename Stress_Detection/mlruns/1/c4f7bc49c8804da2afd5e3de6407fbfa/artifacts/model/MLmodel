@@ -1,0 +1,26 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.2.1
+mlflow_version: 2.1.1
+model_uuid: 69070e7b827d44918846d37283f949f0
+run_id: c4f7bc49c8804da2afd5e3de6407fbfa
+signature:
+  inputs: '[{"name": "snoring_rate", "type": "double"}, {"name": "respiration_rate",
+    "type": "double"}, {"name": "body_temperature", "type": "double"}, {"name": "limb_movement",
+    "type": "double"}, {"name": "blood_oxygen", "type": "double"}, {"name": "eye_movement",
+    "type": "double"}, {"name": "sleeping_hours", "type": "double"}, {"name": "heart_rate",
+    "type": "double"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+utc_time_created: '2023-02-16 18:41:12.964077'
