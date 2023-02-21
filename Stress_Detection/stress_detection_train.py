@@ -19,19 +19,15 @@ from mlflow.entities import ViewType
 
 
 
-## MLflow Experiment Setup
-
-
-
-
+# # MLflow Experiment Setup
 
 
 ###Globals
 
 MLFLOW_TRACKING_URI="sqlite:///mlflow.db"
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-mlflow.set_experiment("stress-levels")
-model_name="stress-level-model"
+mlflow.set_experiment("stress-level")
+model_name="stress-level"
 client = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
 
 
@@ -48,10 +44,9 @@ def generate_uuids(n):
 
 def read_dataFrame(input_file):
     df=pd.read_csv(input_file)
-    df.columns=['snoring_rate', 'respiration_rate', 'body_temperature', 'limb_movement', 'blood_oxygen',              'eye_movement', 'sleeping_hours', 'heart_rate', 'stress_level']
-    
+    df.columns=['snoring_rate', 'respiration_rate', 'body_temperature', 'limb_movement', 'blood_oxygen','eye_movement', 'sleeping_hours', 'heart_rate', 'stress_level']
     df['id']=generate_uuids(len(df))
-    X = df.drop(['stress_level','id'],axis=1)
+    X = df.drop(['snoring_rate','limb_movement','eye_movement','stress_level','id'],axis=1)
     y = df.stress_level
     X_train, X_test, y_train, y_test = train_test_split(X, y,train_size=0.7, 
                                                     random_state=0)
@@ -91,7 +86,7 @@ def training_logging(X_train,y_train,X_test,y_test):
 
 def select_model():
     best_run = client.search_runs(
-        experiment_ids='1',
+        experiment_ids='2',
         filter_string="metrics.rmse<0.01",
         run_view_type=ViewType.ACTIVE_ONLY,
         max_results=1,
